@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { PageIntro, MenuSection, SignatureDishes, MandiFeature, ReservationCTA } from '@/components/restaurant/sections';
+import { categories, pageHead, type Category } from '@/data/restaurant';
+export const Route = createFileRoute('/menu')({ validateSearch: (search: Record<string, unknown>): { category?: Category } => ({ category: categories.find(c => c === search.category) }), head: () => pageHead('The Menu | Fattoush Restaurant & Banquet', 'Explore Fattoush’s kebabs, mandi, Arabian dishes, seafood, vegetarian favourites and desserts in Chennai.', '/menu'), component: MenuPage });
+function MenuPage() { const { category } = Route.useSearch(); return <div className="inner-page"><PageIntro eyebrow="FROM OUR KITCHEN" title="A World of Flavour." description="From the first bite to the sweet finale. Find something worth sharing." /><MenuSection key={category} initialCategory={category} /><SignatureDishes /><MandiFeature /><ReservationCTA /></div>; }
