@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { Navbar, Footer } from "@/components/restaurant/layout";
+import { Navbar, Footer, BrandArrival } from "@/components/restaurant/layout";
 
 function NotFoundComponent() {
   return (
@@ -119,6 +119,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <BrandArrival />
       <Navbar />
       <main id="main-content"><Outlet /></main>
       <Footer />

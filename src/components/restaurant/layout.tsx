@@ -8,6 +8,12 @@ import { navigation, restaurant } from '@/data/restaurant';
 export function Wordmark() {
  return <Link to="/" aria-label="Fattoush home" className="wordmark"><span className="wordmark-main">FATTOUSH</span><span className="wordmark-sub">RESTAURANT & BANQUET</span></Link>;
 }
+export function BrandArrival() {
+ const [visible, setVisible] = useState(true);
+ useEffect(() => { const timer = window.setTimeout(() => setVisible(false), 900); return () => window.clearTimeout(timer); }, []);
+ if (!visible) return null;
+ return <div className="brand-arrival" aria-hidden="true"><span>FATTOUSH</span><i /></div>;
+}
 export function ReserveButton({ outline = false, label = 'RESERVE A TABLE' }: { outline?: boolean; label?: string }) {
  return <Button asChild variant={outline ? 'diningOutline' : 'dining'}><a href={restaurant.telephone}>{label}<ArrowUpRight /></a></Button>;
 }
