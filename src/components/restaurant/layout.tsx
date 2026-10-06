@@ -15,7 +15,7 @@ export function BrandArrival() {
  return <div className="brand-arrival" aria-hidden="true"><span>FATTOUSH</span><i /></div>;
 }
 export function ReserveButton({ outline = false, label = 'RESERVE A TABLE' }: { outline?: boolean; label?: string }) {
- return <Button asChild variant={outline ? 'diningOutline' : 'dining'}><a href={restaurant.telephone}>{label}<ArrowUpRight /></a></Button>;
+ return <Button asChild variant={outline ? 'diningOutline' : 'dining'}><a href="/contact">{label}<ArrowUpRight /></a></Button>;
 }
 export function Navbar() {
  const [scrolled, setScrolled] = useState(false);
