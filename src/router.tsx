@@ -4,13 +4,13 @@ import { routeTree } from "./routeTree.gen";
 
 export const getRouter = () => {
   const queryClient = new QueryClient();
-
   const router = createRouter({
-    routeTree,
-    context: { queryClient },
-    scrollRestoration: true,
-    defaultPreloadStaleTime: 0,
-  });
+  routeTree,
+  context: { queryClient },
+  basepath: "/fattoush-editorial-delight",
+  scrollRestoration: true,
+  defaultPreloadStaleTime: 0,
+});
 
   return router;
 };
