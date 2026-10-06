@@ -9,6 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        dining: "dining-button",
+        diningOutline: "dining-button dining-button-outline",
+        diningIcon: "dining-icon",
+        diningTab: "dining-tab",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
