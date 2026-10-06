@@ -1,24 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router';
+import { Hero, StorySection, SignatureDishes, MenuSection, MandiFeature, GrillSection, BanquetSection, Gallery, Reviews, ExperienceFeatures, ReservationCTA, Location } from '@/components/restaurant/sections';
+import { pageHead, restaurant } from '@/data/restaurant';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
+export const Route = createFileRoute('/')({
+ head: () => ({
+  ...pageHead('Fattoush Restaurant & Banquet | Middle Eastern Restaurant in Chennai', 'Experience flavourful Middle Eastern and multi-cuisine dishes, kebabs, mandi, platters and desserts at Fattoush Restaurant & Banquet in Sholinganallur, Chennai.', '/'),
+  scripts: [{ type: 'application/ld+json', children: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Restaurant', name: restaurant.name, servesCuisine: ['Middle Eastern', 'Multi-Cuisine'], telephone: '+91 99623 30993', hasMenu: restaurant.menu, address: { '@type': 'PostalAddress', streetAddress: '425/1A, Nookampalayam Link Rd, Alamelu Manga Puram, Sholinganallur', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', postalCode: '600119', addressCountry: 'IN' } }) }],
+ }),
+ component: Home,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+function Home() { return <><Hero /><StorySection /><SignatureDishes /><MenuSection /><MandiFeature /><GrillSection /><BanquetSection /><Gallery /><Reviews /><ExperienceFeatures /><ReservationCTA /><Location /></>; }
